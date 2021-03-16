@@ -28,7 +28,7 @@
   "homepage": "./",
   "build": {
     "appId": "electronDoc",
-    "productName": "Azan文档",
+    "productName": "AzanMd",
     "files": [
       "build/**/*",
       "node_modules/**/*",
