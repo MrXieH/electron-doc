@@ -2,6 +2,10 @@
   "name": "cloude-doc",
   "version": "0.1.0",
   "main": "main.js",
+  "author": {
+    "name": "x",
+    "email": "mr.xiehuang@gmail.com"
+  },
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -13,10 +17,11 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
+    "electron-is-dev": "^2.0.0",
     "electron-store": "^5.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0",
+    "react-scripts": "^3.4.0",
     "react-simplemde-editor": "^4.1.0",
     "uuid": "^3.3.3"
   },
@@ -25,7 +30,23 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \"cross-env BROWSER=none npm start\""
+    "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \"cross-env BROWSER=none npm start\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "homepage": "./",
+  "build": {
+    "appId": "electronDoc",
+    "productName": "文档",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "main.js",
+      "./src/menuTemplate.js",
+      "./src/serviceWorker.js"
+    ],
+    "extends": null
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,7 +67,7 @@
     "concurrently": "^5.0.2",
     "cross-env": "^6.0.3",
     "electron": "^7.1.7",
-    "electron-is-dev": "^1.1.0",
+    "electron-builder": "^22.10.5",
     "node-sass": "^4.13.0",
     "wait-on": "^3.3.0"
   }

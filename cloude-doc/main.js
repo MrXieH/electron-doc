@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu } = require('electron')
+const path = require('path')
 const isDev = require('electron-is-dev')
 const menuTemplate = require('./src/menuTemplate.js')
 
@@ -12,7 +13,7 @@ app.on('ready', () => {
       nodeIntegration: true
     }
   })
-  const urlLocation = isDev ? 'http://localhost:3000' : 'dummyurl'
+  const urlLocation = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, './build/index.html')}`
   mainWindow.loadURL(urlLocation)
   mainWindow.webContents.openDevTools()
   // set menu

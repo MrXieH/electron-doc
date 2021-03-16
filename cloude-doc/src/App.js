@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import 'easymde/dist/easymde.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -6,7 +6,7 @@ import FileSearch from './components/FileSearch'
 import FileList from './components/FileList'
 import ButtomBtn from './components/ButtomBtn'
 import TabList from './components/TabList'
-import { faPlus, faFileImport, faSave } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faFileImport } from '@fortawesome/free-solid-svg-icons'
 import SimpleMDE from 'react-simplemde-editor'
 import uuidv4 from 'uuid/v4'
 import { flattenArr, objToArr } from './utils/helper'
@@ -70,7 +70,7 @@ function App() {
       setOpenedFileIDs([...openedFileIDs, fileID])
     }
   }
-  
+
   const tabClick = (fileID) => {
     // set current active file
     setActiveFileId(fileID)
@@ -195,7 +195,6 @@ function App() {
         })
         // 获得flattenArr 结构
         const newFiles = { ...files, ...flattenArr(importFilesArr) }
-        console.log(newFiles)
         // setState and update electron store && messagebox
         setFiles(newFiles)
         saveFilesToStore(newFiles)
@@ -207,7 +206,7 @@ function App() {
           })
         }
       }
-    }) 
+    })
   }
 
   useIpcRenderer({
