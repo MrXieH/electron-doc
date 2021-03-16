@@ -84,20 +84,20 @@ let template = [
           if (focusedWindow)
             focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
         }
-      },
-      {
-        label: '切换开发者工具',
-        accelerator: (function() {
-          if (process.platform === 'darwin')
-            return 'Alt+Command+I';
-          else
-            return 'Ctrl+Shift+I';
-        })(),
-        click: (item, focusedWindow) => {
-          if (focusedWindow)
-            focusedWindow.toggleDevTools();
-        }
-      },
+      }
+      // {
+      //   label: '切换开发者工具',
+      //   accelerator: (function() {
+      //     if (process.platform === 'darwin')
+      //       return 'Alt+Command+I';
+      //     else
+      //       return 'Ctrl+Shift+I';
+      //   })(),
+      //   click: (item, focusedWindow) => {
+      //     if (focusedWindow)
+      //       focusedWindow.toggleDevTools();
+      //   }
+      // },
     ]
   },
   {
@@ -134,13 +134,15 @@ if (process.platform === 'darwin') {
       role: 'about'
     }, {
       type: 'separator'
-    }, {
-      label: '设置',
-      accelerator: 'Command+,',
-      click: () => {
-        ipcMain.emit('open-settings-window')
-      }
-    }, {
+    }, 
+    // {
+    //   label: '设置',
+    //   accelerator: 'Command+,',
+    //   click: () => {
+    //     ipcMain.emit('open-settings-window')
+    //   }
+    // },
+    {
       label: '服务',
       role: 'services',
       submenu: []

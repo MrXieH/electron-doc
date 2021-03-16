@@ -15,7 +15,7 @@ app.on('ready', () => {
   })
   const urlLocation = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, './build/index.html')}`
   mainWindow.loadURL(urlLocation)
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   // set menu
   const menu = Menu.buildFromTemplate(menuTemplate)
   Menu.setApplicationMenu(menu)
